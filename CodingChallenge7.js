@@ -15,3 +15,36 @@ c) correct answer (I would use a number for this)
 6. Check if the answer is correct and print to the console whether the answer is correct ot nor (Hint: write another method for this).
 7. Suppose this code would be a plugin for other programmers to use in their code. So make sure that all your code is private and doesn't interfere with the other programmers code (Hint: we learned a special technique to do exactly that).
 */
+
+
+class Question {
+    constructor (question, possibleAnswers, correctAnswer) {
+        this.question = question; //string
+        this.possibleAnswers = possibleAnswers; //Array? Object?
+        this.correctAnswer = correctAnswer; //Number
+    }
+
+
+}
+
+//Creates Instances
+firstString = 'Hvad farve er solen';
+firstPossibleAnswers = ['Rød', 'Grøn', 'Gul'];
+firstCorrectAnswer = 2;
+
+secondString = 'Er jorden rund?';
+secondPossibleAnswers = ['Ja', 'Nej'];
+secondCorrectAnswer = 0;
+
+thirdString = 'Hvad drikker Møller';
+thirdPossibleAnswers = ['Vand', 'Øller'];
+thirdCorrectAnswer = 1;
+
+
+let firstQuestion = new Question(firstString, firstPossibleAnswers, firstCorrectAnswer);
+let secondQuestion = new Question(secondString, secondPossibleAnswers, secondCorrectAnswer);
+let thirdQuestion = new Question(thirdString, thirdPossibleAnswers, thirdCorrectAnswer);
+
+
+//Questions Array
+let questions = [firstQuestion, secondQuestion, thirdQuestion];
