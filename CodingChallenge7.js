@@ -17,6 +17,7 @@ c) correct answer (I would use a number for this)
 */
 
 
+//1
 class Question {
     constructor (question, possibleAnswers, correctAnswer) {
         this.question = question; //string
@@ -24,11 +25,40 @@ class Question {
         this.correctAnswer = correctAnswer; //Number
     }
 
+    print () {
+        //Print question
+        console.log(this.question);
+        for (let i = 0; i < this.possibleAnswers.length; i++) {
+            console.log(i + ': ' + this.possibleAnswers[i]);
+        }
 
+
+        //Space
+        console.log('');
+        
+
+        //Prompt
+        var promptInput = prompt('Please select the correct answer (just type the number).');
+
+        if (promptInput !== null && promptInput !== '') {
+            if (promptInput == this.correctAnswer) {
+                console.log('Correct answer!')
+            }
+            else {
+                console.log('Wrong answer!');
+            }
+        }
+        else {
+            console.log('Please input your answer.')
+        }
+
+    }
 }
 
+
+//2
 //Creates Instances
-firstString = 'Hvad farve er solen';
+firstString = 'Hvad farve er solen?';
 firstPossibleAnswers = ['Rød', 'Grøn', 'Gul'];
 firstCorrectAnswer = 2;
 
@@ -36,7 +66,7 @@ secondString = 'Er jorden rund?';
 secondPossibleAnswers = ['Ja', 'Nej'];
 secondCorrectAnswer = 0;
 
-thirdString = 'Hvad drikker Møller';
+thirdString = 'Hvad drikker Møller?';
 thirdPossibleAnswers = ['Vand', 'Øller'];
 thirdCorrectAnswer = 1;
 
@@ -46,5 +76,24 @@ let secondQuestion = new Question(secondString, secondPossibleAnswers, secondCor
 let thirdQuestion = new Question(thirdString, thirdPossibleAnswers, thirdCorrectAnswer);
 
 
+//3
 //Questions Array
 let questions = [firstQuestion, secondQuestion, thirdQuestion];
+
+
+//Get random number
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+
+//4
+//Self invoking function
+(function() {
+    //Random number from 0 -> questions.length
+    var randomQuestion = getRandomInt(0, questions.length);
+
+    questions[randomQuestion].print();
+})();
